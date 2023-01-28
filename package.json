@@ -1,0 +1,53 @@
+{
+  "name": "rommage",
+  "version": "0.1.0",
+  "description": "ROM manipulation for Node.js and the browser",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint --fix src/**/*.ts",
+    "prettify": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "rom",
+    "gameboy",
+    "gameboy-advance",
+    "nes",
+    "snes",
+    "ips",
+    "ups",
+    "bps"
+  ],
+  "author": "kinetikeith",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@types/lodash-es": "^4.17.6",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.3",
+    "rimraf": "^4.1.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-ts": "^3.2.0",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "buffer": "github:BTOdell/buffer",
+    "crc": "^4.3.1",
+    "lodash-es": "^4.17.21",
+    "safe-buffer": "^5.2.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
