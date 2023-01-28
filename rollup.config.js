@@ -4,14 +4,12 @@ import terser from "@rollup/plugin-terser";
 
 import { sync } from "rimraf";
 
-import pkg from "./package.json";
-
-const config = ({ file, format, minified }) => {
+const config = ({ file, format, minified, ext }) => {
   const minSuffix = minified ? ".min" : "";
   return {
     input: "src/index.ts",
     output: {
-      file: `${file}${minSuffix}`,
+      file: `dist/${format}/index${minSuffix}${ext}`,
       format,
       sourcemap: true,
     },
@@ -32,8 +30,8 @@ const config = ({ file, format, minified }) => {
 sync("dist");
 
 export default [
-  { file: pkg.main, format: "cjs", minified: false },
-  { file: pkg.main, format: "cjs", minified: true },
-  { file: pkg.module, format: "esm", minified: false },
-  { file: pkg.module, format: "esm", minified: true },
+  { format: "cjs", ext: ".js", minified: false },
+  { format: "cjs", ext: ".js", minified: true },
+  { format: "esm", ext: ".mjs", minified: false },
+  { format: "esm", ext: ".mjs", minified: true },
 ].map(config);
