@@ -7,7 +7,7 @@ import IpsPatch from "./IpsPatch";
 import UpsPatch from "./UpsPatch";
 import BpsPatch from "./BpsPatch";
 
-import { detectRomType, bufferToPatch } from "./detect";
+import { detectRomType, RomType, bufferToPatch } from "./detect";
 
 export {
   NesRom,
@@ -19,4 +19,5 @@ export {
   BpsPatch,
   detectRomType,
   bufferToPatch,
+  RomType
 };
