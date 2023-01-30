@@ -23,6 +23,10 @@
     "name": "kinetikeith",
     "url": "https://github.com/kinetikeith"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kinetikeith/rommage"
+  },
   "keywords": [
     "rom",
     "gameboy",
