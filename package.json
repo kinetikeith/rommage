@@ -1,15 +1,29 @@
 {
   "name": "rommage",
   "version": "0.1.0",
-  "description": "ROM manipulation for Node.js and the browser",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
-  "types": "dist/esm/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.mts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/esm/index.d.mts",
+  "main": "./dist/cjs/index.cjs",
+
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint --fix src/**/*.ts",
     "prettify": "prettier --write .",
     "prepare": "husky install"
+  },
+
+  "description": "ROM manipulation for Node.js and the browser",
+  "author": {
+    "name": "kinetikeith",
+    "url": "https://github.com/kinetikeith"
   },
   "keywords": [
     "rom",
@@ -21,11 +35,9 @@
     "ups",
     "bps"
   ],
-  "author": "kinetikeith",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-terser": "^0.4.0",
     "@types/lodash-es": "^4.17.6",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
@@ -44,8 +56,7 @@
   "dependencies": {
     "buffer": "github:BTOdell/buffer",
     "crc": "^4.3.1",
-    "lodash-es": "^4.17.21",
-    "safe-buffer": "^5.2.1"
+    "lodash-es": "^4.17.21"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

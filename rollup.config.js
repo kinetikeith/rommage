@@ -1,28 +1,21 @@
 import ts from "rollup-plugin-ts";
 import commonjs from "@rollup/plugin-commonjs";
-import terser from "@rollup/plugin-terser";
 
 import { sync } from "rimraf";
 
-const config = ({ file, format, minified, ext }) => {
-  const minSuffix = minified ? ".min" : "";
+const config = ({ format, ext }) => {
   return {
     input: "src/index.ts",
     output: {
-      file: `dist/${format}/index${minSuffix}${ext}`,
+      name: "rommage",
+      file: `dist/${format}/index${ext}`,
       format,
       sourcemap: true,
     },
     plugins: [
       ts(),
       commonjs(),
-      minified
-        ? terser({
-            compress: true,
-            mangle: true,
-          })
-        : undefined,
-    ].filter(Boolean),
+    ],
     external: ["crc/crc32", "buffer", "lodash-es"],
   };
 };
@@ -30,8 +23,6 @@ const config = ({ file, format, minified, ext }) => {
 sync("dist");
 
 export default [
-  { format: "cjs", ext: ".js", minified: false },
-  { format: "cjs", ext: ".js", minified: true },
-  { format: "esm", ext: ".mjs", minified: false },
-  { format: "esm", ext: ".mjs", minified: true },
+  { format: "cjs", ext: ".cjs" },
+  { format: "esm", ext: ".mjs" },
 ].map(config);
