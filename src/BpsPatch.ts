@@ -86,13 +86,11 @@ export default class BpsPatch {
   }
 
   get sizesWithOffset() {
-    let sourceSize, targetSize, metadataSize;
-    let offset;
-    [sourceSize, offset] = readVUInt(this._buffer, 0x04);
-    [targetSize, offset] = readVUInt(this._buffer, offset);
-    [metadataSize, offset] = readVUInt(this._buffer, offset);
+    const [sourceSize, tSizeOffset] = readVUInt(this._buffer, 0x04);
+    const [targetSize, mSizeOffset] = readVUInt(this._buffer, tSizeOffset);
+    const [metadataSize, mOffset] = readVUInt(this._buffer, mSizeOffset);
 
-    return [sourceSize, targetSize, metadataSize, offset];
+    return [sourceSize, targetSize, metadataSize, mOffset];
   }
 
   get patchSize(): number {

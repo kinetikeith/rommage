@@ -55,12 +55,10 @@ export default class UpsPatch {
   }
 
   get fileSizes() {
-    let inputSize, outputSize;
-    let offset;
-    [inputSize, offset] = readVUInt(this._buffer, 0x04);
-    [outputSize, offset] = readVUInt(this._buffer, offset);
+    const [inputSize, oSizeOffset] = readVUInt(this._buffer, 0x04);
+    const [outputSize, cOffset] = readVUInt(this._buffer, oSizeOffset);
 
-    return [inputSize, outputSize, offset];
+    return [inputSize, outputSize, cOffset];
   }
 
   get patchSize() {

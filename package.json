@@ -14,7 +14,7 @@
   "main": "./dist/cjs/index.cjs",
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint --fix src/**/*.ts",
+    "lint": "eslint ./src/",
     "prettify": "prettier --write .",
     "prepare": "husky install"
   },
