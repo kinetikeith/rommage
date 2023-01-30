@@ -19,7 +19,7 @@ $ npm install --save rommage
 ### ROM type detection
 ```javascript
 import { readFile } from "fs/promises";
-import { detectRomType } from "rommage";
+import { detectRomType, RomType } from "rommage";
 
 // Alternatively, require syntax may be used:
 // const detectRomType = require("rommage").detectRomType;
