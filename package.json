@@ -1,6 +1,6 @@
 {
   "name": "rommage",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     ".": {
@@ -12,14 +12,12 @@
   "module": "./dist/esm/index.mjs",
   "types": "./dist/esm/index.d.mts",
   "main": "./dist/cjs/index.cjs",
-
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint --fix src/**/*.ts",
     "prettify": "prettier --write .",
     "prepare": "husky install"
   },
-
   "description": "ROM manipulation for Node.js and the browser",
   "author": {
     "name": "kinetikeith",
