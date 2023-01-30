@@ -38,6 +38,10 @@
     "bps"
   ],
   "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@types/lodash-es": "^4.17.6",
