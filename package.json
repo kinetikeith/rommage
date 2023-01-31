@@ -14,7 +14,7 @@
   "main": "./dist/cjs/index.cjs",
   "scripts": {
     "build": "rollup -c",
-    "lint": "eslint ./src/",
+    "lint": "eslint src/ && tsc --noEmit",
     "prettify": "prettier --write .",
     "prepare": "husky install"
   },
@@ -45,6 +45,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.32.0",
