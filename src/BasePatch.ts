@@ -7,7 +7,7 @@ export enum PatchType {
   Bps,
 }
 
-export default class BasePatch {
+export class BasePatch {
   static type: PatchType = PatchType.Unknown;
   _buffer: Buffer;
 

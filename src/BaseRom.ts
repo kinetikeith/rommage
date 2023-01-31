@@ -8,7 +8,7 @@ export enum RomType {
   Gba,
 }
 
-export default class BaseRom {
+export class BaseRom {
   static type: RomType = RomType.Generic;
   _buffer: Buffer;
 

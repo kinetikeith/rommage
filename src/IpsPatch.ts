@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import { min, max } from "lodash-es";
 
-import BasePatch, { PatchType } from "./BasePatch";
+import { BasePatch, PatchType } from "./BasePatch";
 
 interface Chunk {
   offset: number;
@@ -9,7 +9,7 @@ interface Chunk {
   buffer: () => Buffer;
 }
 
-export default class IpsPatch extends BasePatch {
+export class IpsPatch extends BasePatch {
   static type = PatchType.Ips;
   constructor(buffer: Buffer) {
     super(buffer);

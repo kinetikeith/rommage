@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
-import BaseRom, { RomType } from "./BaseRom";
+import { BaseRom, RomType } from "./BaseRom";
 import { trimNull, padNull, range } from "./utils";
 import destinationMap from "./data/snesDestinations";
 import mapperMap from "./data/snesMappers";
@@ -280,7 +280,7 @@ class Header {
   }
 }
 
-export default class SnesRom extends BaseRom {
+export class SnesRom extends BaseRom {
   static type = RomType.Snes;
   readonly headerOffset: number;
 

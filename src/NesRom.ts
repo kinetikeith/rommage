@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
-import BaseRom, { RomType } from "./BaseRom";
+import { BaseRom, RomType } from "./BaseRom";
 import { mod } from "./utils";
 import chrSizeMap from "./data/nesChrSizes";
 import prgSizeMap from "./data/nesPrgSizes";
@@ -267,7 +267,7 @@ class LicenseHeader {
   }
 }
 
-export default class NesRom extends BaseRom {
+export class NesRom extends BaseRom {
   static type = RomType.Nes;
   readonly licenseHeaderOffset: number;
   readonly hasINesHeader: boolean;

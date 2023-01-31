@@ -1,12 +1,12 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
-import BasePatch, { PatchType } from "./BasePatch";
-import IpsPatch from "./IpsPatch";
-import UpsPatch from "./UpsPatch";
-import BpsPatch from "./BpsPatch";
+import { BasePatch, PatchType } from "./BasePatch";
+import { IpsPatch } from "./IpsPatch";
+import { UpsPatch } from "./UpsPatch";
+import { BpsPatch } from "./BpsPatch";
 
-export default class Patch extends BasePatch {
+export class Patch extends BasePatch {
   static type = PatchType.Unknown;
 
   static fromBuffer(buffer: Buffer): BasePatch {

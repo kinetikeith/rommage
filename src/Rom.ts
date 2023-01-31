@@ -1,13 +1,13 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
-import BaseRom, { RomType } from "./BaseRom";
-import NesRom from "./NesRom";
-import SnesRom from "./SnesRom";
-import GbRom from "./GbRom";
-import GbaRom from "./GbaRom";
+import { BaseRom, RomType } from "./BaseRom";
+import { NesRom } from "./NesRom";
+import { SnesRom } from "./SnesRom";
+import { GbRom } from "./GbRom";
+import { GbaRom } from "./GbaRom";
 
-export default class Rom extends BaseRom {
+export class Rom extends BaseRom {
   static type = RomType.Generic;
   constructor(buffer: Buffer) {
     super(buffer);

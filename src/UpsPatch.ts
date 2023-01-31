@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import crc32 from "crc/crc32";
 
-import BasePatch, { PatchType } from "./BasePatch";
+import { BasePatch, PatchType } from "./BasePatch";
 import { readVUInt } from "./utils";
 
 interface Chunk {
@@ -40,7 +40,7 @@ const upsErrHandler = (err: UpsError) => {
   }
 };
 
-export default class UpsPatch extends BasePatch {
+export class UpsPatch extends BasePatch {
   static type = PatchType.Ups;
   constructor(buffer: Buffer) {
     super(buffer);
