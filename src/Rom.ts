@@ -16,13 +16,13 @@ export default class Rom extends BaseRom {
   static fromBuffer(buffer: Buffer): BaseRom {
     const candidates = [NesRom, SnesRom, GbRom, GbaRom].map((TypeRom) => {
       const rom = TypeRom.fromBuffer(buffer);
-      return {rom, validity: rom.validity};
+      return { rom, validity: rom.validity };
     });
     const candidatesSorted = sortBy(candidates, "validity");
     const bestCandidate = candidatesSorted.pop();
 
-    if(bestCandidate !== undefined) {
-      if(bestCandidate.validity > 0) return bestCandidate.rom;
+    if (bestCandidate !== undefined) {
+      if (bestCandidate.validity > 0) return bestCandidate.rom;
     }
 
     return new Rom(buffer);

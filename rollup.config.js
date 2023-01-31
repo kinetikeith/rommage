@@ -12,10 +12,7 @@ const config = ({ format, ext }) => {
       format,
       sourcemap: true,
     },
-    plugins: [
-      ts(),
-      commonjs(),
-    ],
+    plugins: [ts(), commonjs()],
     external: ["crc/crc32", "buffer", "lodash-es"],
   };
 };

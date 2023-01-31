@@ -20,7 +20,6 @@ export {
   SnesRom,
   GbRom,
   GbaRom,
-
   Patch,
   PatchType,
   IpsPatch,

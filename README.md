@@ -17,6 +17,7 @@ $ npm install --save rommage
 ## Examples
 
 ### ROM type detection
+
 ```javascript
 import { readFile } from "fs/promises";
 import { detectRomType, RomType } from "rommage";
@@ -30,6 +31,7 @@ console.log(romType === RomType.Gb); // -> true
 ```
 
 ### Rom patching
+
 ```javascript
 import { UpsPatch } from "rommage";
 const patchBuffer = await readFile("./someFileMod.ups");
@@ -39,6 +41,7 @@ patch.applyTo(fileBuffer);
 ```
 
 ### Header modification
+
 ```javascript
 import { GbRom } from "rommage";
 const rom = GbRom.fromBuffer(fileBuffer);
