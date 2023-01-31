@@ -20,31 +20,31 @@ $ npm install --save rommage
 
 ```javascript
 import { readFile } from "fs/promises";
-import { detectRomType, RomType } from "rommage";
+import { Rom, RomType } from "rommage";
 
 // Alternatively, require syntax may be used:
-// const detectRomType = require("rommage").detectRomType;
+// const { Rom, RomType } = require("rommage");
 
-const fileBuffer = await readFile("./someFile.gbc");
-const romType = detectRomType(fileBuffer);
-console.log(romType === RomType.Gb); // -> true
+const romBuffer = await readFile("./someFile.gbc");
+const rom = Rom.fromBuffer(romBuffer);
+console.log(rom.type === RomType.Gb); // -> true
 ```
 
 ### Rom patching
 
 ```javascript
-import { UpsPatch } from "rommage";
+import { Patch, PatchType } from "rommage";
 const patchBuffer = await readFile("./someFileMod.ups");
-const patch = new UpsPatch(patchBuffer);
+const patch = Patch.fromBuffer(patchBuffer);
+console.log(patch.type === PatchType.Ups); // -> true
 
-patch.applyTo(fileBuffer);
+patch.applyTo(romBuffer);
 ```
 
 ### Header modification
 
 ```javascript
-import { GbRom } from "rommage";
-const rom = GbRom.fromBuffer(fileBuffer);
+console.log(rom.validity); // -> 8
 
 console.log(rom.header.logo.isValid); // -> true
 rom.header.logo.togglePixel(1, 5);
