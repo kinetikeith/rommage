@@ -27,7 +27,7 @@ import { Rom, RomType } from "rommage";
 
 const romBuffer = await readFile("./someFile.gbc");
 const rom = Rom.fromBuffer(romBuffer);
-console.log(rom.type === RomType.Gb); // -> true
+console.log(rom.type === RomType.Gb);
 ```
 
 ### Rom patching
@@ -36,7 +36,7 @@ console.log(rom.type === RomType.Gb); // -> true
 import { Patch, PatchType } from "rommage";
 const patchBuffer = await readFile("./someFileMod.ups");
 const patch = Patch.fromBuffer(patchBuffer);
-console.log(patch.type === PatchType.Ups); // -> true
+console.log(patch.type === PatchType.Ups);
 
 patch.applyTo(romBuffer);
 ```
@@ -44,12 +44,20 @@ patch.applyTo(romBuffer);
 ### Header modification
 
 ```javascript
-console.log(rom.validity); // -> 8
+console.log(rom.validity);
 
-console.log(rom.header.logo.isValid); // -> true
+console.log(rom.header.logo.isValid);
 rom.header.logo.togglePixel(1, 5);
-console.log(rom.header.logo.isValid); // -> false
+console.log(rom.header.logo.isValid);
 
-console.log(rom.header.version); // -> 1
-console.log(rom.header.title); // -> "MY TITLE"
+console.log(rom.header.version);
+console.log(rom.header.title);
+```
+
+### Accessing specific rom type
+```javascript
+import { GbRom } from "rommage/GbaRom";
+
+const gbRom = GbRom.fromBuffer(romBuffer);
+console.log(rom.validity); // -> 4
 ```
