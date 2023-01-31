@@ -1,6 +1,7 @@
 import { Buffer } from "buffer";
-import { trimNull, padNull, mod } from "./utils";
 
+import BaseRom, { RomType } from "./BaseRom";
+import { trimNull, padNull, mod } from "./utils";
 import destinationMap from "./data/gbaDestinations";
 
 export { destinationMap };
@@ -136,15 +137,14 @@ class Header {
   }
 }
 
-export default class Rom {
-  readonly _buffer: Buffer;
-
+export default class GbaRom extends BaseRom {
+  static type = RomType.Gba;
   constructor(buffer: Buffer) {
-    this._buffer = buffer;
+    super(buffer);
   }
 
   static fromBuffer(buffer: Buffer) {
-    return new Rom(buffer);
+    return new GbaRom(buffer);
   }
 
   get header(): Header {

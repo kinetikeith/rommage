@@ -1,5 +1,6 @@
 import { Buffer } from "buffer";
 
+import BaseRom, { RomType } from "./BaseRom";
 import { trimNull, padNull, mod, range } from "./utils";
 import licenseeOldMap from "./data/gbLicenseesOld";
 import licenseeNewMap from "./data/gbLicenseesNew";
@@ -329,15 +330,14 @@ class Header {
   }
 }
 
-export default class Rom {
-  readonly _buffer: Buffer;
-
+export default class GbRom extends BaseRom {
+  static type = RomType.Gb;
   constructor(buffer: Buffer) {
-    this._buffer = buffer;
+    super(buffer);
   }
 
   static fromBuffer(buffer: Buffer) {
-    return new Rom(buffer);
+    return new GbRom(buffer);
   }
 
   get header(): Header {

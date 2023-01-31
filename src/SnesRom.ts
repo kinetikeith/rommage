@@ -1,8 +1,8 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
+import BaseRom, { RomType } from "./BaseRom";
 import { trimNull, padNull, range } from "./utils";
-
 import destinationMap from "./data/snesDestinations";
 import mapperMap from "./data/snesMappers";
 import featureMap from "./data/snesFeatures";
@@ -280,18 +280,18 @@ class Header {
   }
 }
 
-export default class Rom {
-  readonly _buffer: Buffer;
+export default class SnesRom extends BaseRom {
+  static type = RomType.Snes;
   readonly headerOffset: number;
 
   constructor(buffer: Buffer, headerOffset: number) {
-    this._buffer = buffer;
+    super(buffer);
     this.headerOffset = headerOffset;
   }
 
   static fromBuffer(buffer: Buffer) {
     const headerOffset = findHeaderOffset(buffer);
-    return new Rom(buffer, headerOffset);
+    return new SnesRom(buffer, headerOffset);
   }
 
   get validity(): number {

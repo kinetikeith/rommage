@@ -1,8 +1,8 @@
 import { Buffer } from "buffer";
 import { sortBy } from "lodash-es";
 
+import BaseRom, { RomType } from "./BaseRom";
 import { mod } from "./utils";
-
 import chrSizeMap from "./data/nesChrSizes";
 import prgSizeMap from "./data/nesPrgSizes";
 
@@ -267,8 +267,8 @@ class LicenseHeader {
   }
 }
 
-export default class Rom {
-  readonly _buffer: Buffer;
+export default class NesRom extends BaseRom {
+  static type = RomType.Nes;
   readonly licenseHeaderOffset: number;
   readonly hasINesHeader: boolean;
 
@@ -277,17 +277,17 @@ export default class Rom {
     hasINesHeader: boolean,
     licenseHeaderOffset: number
   ) {
-    this._buffer = buffer;
+    super(buffer);
     this.hasINesHeader = hasINesHeader;
     this.licenseHeaderOffset = licenseHeaderOffset;
   }
 
-  static fromBuffer(buffer: Buffer): Rom {
+  static fromBuffer(buffer: Buffer) {
     const hasINesHeader = checkForINesHeader(buffer);
     const rawBuffer = hasINesHeader ? buffer.subarray(16) : buffer;
     const licenseHeaderOffset = findLicenseHeaderOffset(rawBuffer);
 
-    return new Rom(buffer, hasINesHeader, licenseHeaderOffset);
+    return new NesRom(buffer, hasINesHeader, licenseHeaderOffset);
   }
 
   get validity(): number {
