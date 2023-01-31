@@ -71,7 +71,12 @@
     "crc": "^4.3.1",
     "lodash-es": "^4.17.21"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*.{js,cjs,mjs,ts,json,md}": "prettier --write --ignore-unknown"
   }
 }
