@@ -56,7 +56,7 @@ console.log(rom.header.title);
 
 ### Accessing specific rom type
 ```javascript
-import { GbRom } from "rommage/GbaRom";
+import { GbRom } from "rommage/GbRom";
 
 const gbRom = GbRom.fromBuffer(romBuffer);
 console.log(rom.validity); // -> 4
