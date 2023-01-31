@@ -19,4 +19,8 @@ export class BaseRom {
   get type(): RomType {
     return Object.getPrototypeOf(this).constructor.type;
   }
+
+  get buffer(): Buffer {
+    return this._buffer;
+  }
 }
