@@ -1,14 +1,19 @@
 import ts from "rollup-plugin-ts";
 import commonjs from "@rollup/plugin-commonjs";
+import { sync as glob } from "fast-glob";
 
-import { sync } from "rimraf";
+import { sync as remove } from "rimraf";
 
 const config = ({ format, ext }) => {
   return {
-    input: "src/index.ts",
+    input: glob([
+      "src/index.ts",
+      "src/*Patch.ts",
+      "src/*Rom.ts",
+    ]),
     output: {
       name: "rommage",
-      file: `dist/${format}/index${ext}`,
+      dir: `dist/${format}/`,
       format,
       sourcemap: true,
     },
@@ -17,7 +22,7 @@ const config = ({ format, ext }) => {
   };
 };
 
-sync("dist");
+remove("dist");
 
 export default [
   { format: "cjs", ext: ".cjs" },
