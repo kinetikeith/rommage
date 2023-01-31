@@ -1,6 +1,7 @@
 import { Buffer } from "buffer";
 import crc32 from "crc/crc32";
 
+import BasePatch, { PatchType } from "./BasePatch";
 import { readVUInt, readVInt } from "./utils";
 
 enum Command {
@@ -70,14 +71,13 @@ const bpsErrHandler = (err: BpsError) => {
   }
 };
 
-export default class BpsPatch {
-  _buffer: Buffer;
-
+export default class BpsPatch extends BasePatch {
+  static type = PatchType.Bps;
   constructor(buffer: Buffer) {
-    this._buffer = buffer;
+    super(buffer);
   }
 
-  get validityScore() {
+  get validity() {
     return this.magic === "BPS1" ? 1 : 0;
   }
 

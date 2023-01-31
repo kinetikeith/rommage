@@ -1,20 +1,21 @@
 import { Buffer } from "buffer";
 import { min, max } from "lodash-es";
 
+import BasePatch, { PatchType } from "./BasePatch";
+
 interface Chunk {
   offset: number;
   length: number;
   buffer: () => Buffer;
 }
 
-export default class IpsPatch {
-  _buffer: Buffer;
-
+export default class IpsPatch extends BasePatch {
+  static type = PatchType.Ips;
   constructor(buffer: Buffer) {
-    this._buffer = buffer;
+    super(buffer);
   }
 
-  get validityScore() {
+  get validity() {
     return this.magic === "PATCH" ? 1 : 0;
   }
 
