@@ -55,6 +55,7 @@ console.log(rom.header.title);
 ```
 
 ### Accessing specific rom type
+
 ```javascript
 import { GbRom } from "rommage/GbRom";
 

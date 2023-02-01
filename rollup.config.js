@@ -6,11 +6,7 @@ import { sync as remove } from "rimraf";
 
 const config = ({ format, ext }) => {
   return {
-    input: glob([
-      "src/index.ts",
-      "src/*Patch.ts",
-      "src/*Rom.ts",
-    ]),
+    input: glob(["src/index.ts", "src/*Patch.ts", "src/*Rom.ts"]),
     output: {
       name: "rommage",
       dir: `dist/${format}/`,
