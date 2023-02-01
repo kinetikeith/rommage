@@ -1,4 +1,4 @@
-export default new Map<number, string>([
+const destinationMap = new Map<number, string>([
   [0x00, "Japan"],
   [0x01, "USA"],
   [0x02, "Europe"],
@@ -17,3 +17,5 @@ export default new Map<number, string>([
   [0x10, "Brazil"],
   [0x11, "Australia"],
 ]);
+
+export { destinationMap };

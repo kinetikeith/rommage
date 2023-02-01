@@ -1,4 +1,4 @@
-export default new Map<number, string>([
+const licenseeOldMap = new Map<number, string>([
   [0x00, "None"],
   [0x01, "Nintendo"],
   [0x08, "Capcom"],
@@ -146,3 +146,5 @@ export default new Map<number, string>([
   [0xf3, "Extreme Entertainment"],
   [0xff, "LJN"],
 ]);
+
+export { licenseeOldMap };

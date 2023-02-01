@@ -2,7 +2,7 @@ import { Buffer } from "buffer";
 
 import { BaseRom, RomType } from "./BaseRom";
 import { trimNull, padNull, mod } from "./utils";
-import destinationMap from "./data/gbaDestinations";
+import { destinationMap } from "./data/gbaDestinations";
 
 export { destinationMap };
 

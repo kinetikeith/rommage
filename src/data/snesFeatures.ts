@@ -1,4 +1,4 @@
-export default new Map<number, string[]>([
+const featureMap = new Map<number, string[]>([
   [0x00, ["ROM"]],
   [0x01, ["ROM", "RAM"]],
   [0x02, ["ROM", "RAM", "Battery"]],
@@ -18,3 +18,5 @@ export default new Map<number, string[]>([
   [0xe5, ["ROM", "BS-X"]],
   [0x1a, ["ROM", "RAM", "Battery", "GSU-2-SP1"]],
 ]);
+
+export { featureMap };

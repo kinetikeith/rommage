@@ -2,9 +2,9 @@ import { Buffer } from "buffer";
 
 import { BaseRom, RomType } from "./BaseRom";
 import { trimNull, padNull, mod, range } from "./utils";
-import licenseeOldMap from "./data/gbLicenseesOld";
-import licenseeNewMap from "./data/gbLicenseesNew";
-import featureMap from "./data/gbFeatures";
+import { licenseeOldMap } from "./data/gbLicenseesOld";
+import { licenseeNewMap } from "./data/gbLicenseesNew";
+import { featureMap } from "./data/gbFeatures";
 
 interface MemoryInfo {
   banks: number;

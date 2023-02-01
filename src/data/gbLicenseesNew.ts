@@ -1,4 +1,4 @@
-export default new Map<string, string>([
+const licenseeNewMap = new Map<string, string>([
   ["00", "None"],
   ["01", "Nintendo R&D1"],
   ["08", "Capcom"],
@@ -61,3 +61,5 @@ export default new Map<string, string>([
   ["99", "Pack in soft"],
   ["A4", "Konami (Yu-Gi-Oh!)"],
 ]);
+
+export { licenseeNewMap }

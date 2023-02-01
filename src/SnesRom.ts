@@ -3,9 +3,9 @@ import { sortBy } from "lodash-es";
 
 import { BaseRom, RomType } from "./BaseRom";
 import { trimNull, padNull, range } from "./utils";
-import destinationMap from "./data/snesDestinations";
-import mapperMap from "./data/snesMappers";
-import featureMap from "./data/snesFeatures";
+import { destinationMap } from "./data/snesDestinations";
+import { mapperMap } from "./data/snesMappers";
+import { featureMap } from "./data/snesFeatures";
 
 const ramMap = new Map<number, number>(range(0x08).map((i) => [i, 1024 << i]));
 const romMap = new Map<number, number>(

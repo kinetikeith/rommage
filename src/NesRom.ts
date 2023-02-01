@@ -3,8 +3,8 @@ import { sortBy } from "lodash-es";
 
 import { BaseRom, RomType } from "./BaseRom";
 import { mod } from "./utils";
-import chrSizeMap from "./data/nesChrSizes";
-import prgSizeMap from "./data/nesPrgSizes";
+import { chrSizeMap } from "./data/nesChrSizes";
+import { prgSizeMap } from "./data/nesPrgSizes";
 
 const iNesMagic = "NES\x1a";
 

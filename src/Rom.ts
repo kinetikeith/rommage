@@ -7,6 +7,8 @@ import { SnesRom } from "./SnesRom";
 import { GbRom } from "./GbRom";
 import { GbaRom } from "./GbaRom";
 
+export { RomType };
+
 export class Rom extends BaseRom {
   static type = RomType.Generic;
   constructor(buffer: Buffer) {

@@ -6,6 +6,8 @@ import { IpsPatch } from "./IpsPatch";
 import { UpsPatch } from "./UpsPatch";
 import { BpsPatch } from "./BpsPatch";
 
+export { PatchType };
+
 export class Patch extends BasePatch {
   static type = PatchType.Unknown;
 
