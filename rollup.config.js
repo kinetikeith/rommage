@@ -19,24 +19,23 @@ const newPkg = {
   type: "module",
   types: "./esm/index.d.ts",
   module: "./esm/index.js",
-  main: "./cjs/index.js",
+  main: "./index.js",
 
   exports: {
     ".": {
       "types": "./esm/index.d.ts",
       "import": "./esm/index.js",
-      "require": "./cjs/index.js",
+      "require": "./index.js",
     },
     "./*": {
       "types": "./esm/*.d.ts",
       "import": "./esm/*.js",
-      "require": "./cjs/*.js",
+      "require": "./*.js",
     },
   },
 
   files: [
     "esm",
-    "cjs",
     "*.js",
     "*.d.ts",
   ]
@@ -45,11 +44,6 @@ const newPkg = {
 export default {
   input: glob(["src/index.ts", "src/*Patch.ts", "src/*Rom.ts"]),
   output: [
-    {
-      name: "rommage",
-      dir: "dist/cjs/",
-      format: "cjs",
-    },
     {
       name: "rommage",
       dir: "dist/",
