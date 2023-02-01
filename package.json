@@ -1,24 +1,9 @@
 {
   "name": "rommage",
   "version": "3.1.0",
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/esm/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
-    },
-    "./*": {
-      "types": "./dist/esm/*.d.ts",
-      "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js"
-    }
-  },
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
-  "main": "./dist/cjs/index.js",
   "scripts": {
     "build": "rollup -c",
+    "start": "rollup -c -w",
     "lint": "eslint src/ && tsc --noEmit",
     "prettify": "prettier --write .",
     "prepare": "husky install"
@@ -43,12 +28,9 @@
     "bps"
   ],
   "license": "MIT",
-  "files": [
-    "dist",
-    "src"
-  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
